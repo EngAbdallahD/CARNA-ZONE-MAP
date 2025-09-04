@@ -2,18 +2,19 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f2f5;
     margin: 0;
-    padding: 20px;
+    padding: 10px; /* Adjusted padding for all screens */
 }
 
 #layout-container {
     background-color: #ffffff;
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    max-width: 90vw;
+    width: 100%; /* Use full width available */
+    max-width: 1400px; /* Set a max-width for very large screens */
     margin: auto;
 }
 
-#layout-container svg [id] { /* Targets any element with an ID */
+#layout-container svg [id] {
     cursor: pointer;
     transition: opacity 0.2s;
 }
@@ -29,10 +30,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 800px; /* Wider card for more info */
+    width: 800px; /* Default width for desktop */
     max-width: 90vw;
-    max-height: 90vh; /* Allow scrolling on small screens */
-    overflow-y: auto; /* Add scrollbar if content overflows */
+    max-height: 90vh;
+    overflow-y: auto;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -49,6 +50,7 @@ body {
 
 #motor-card h3 {
     margin-top: 0;
+    font-size: 1.1em;
     color: #0056b3;
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
@@ -56,25 +58,27 @@ body {
 
 #motor-card p {
     margin: 8px 0;
+    font-size: 0.9em;
 }
 
 .card-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two-column layout */
-    gap: 10px 25px; /* Row and column gap */
+    grid-template-columns: 1fr 1fr; /* Two columns for desktop */
+    gap: 10px 25px;
     margin-top: 15px;
 }
 
 .card-section h4 {
     margin-bottom: 10px;
+    font-size: 1em;
     color: #333;
     border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
-    grid-column: 1 / -1; /* Header spans both columns */
+    grid-column: 1 / -1;
 }
 
 .card-section.full-width {
-    grid-column: 1 / -1; /* Section spans both columns */
+    grid-column: 1 / -1;
 }
 
 #close-card {
@@ -87,4 +91,31 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+
+/* =================================== */
+/* ==== MOBILE RESPONSIVE STYLES ==== */
+/* =================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 5px; /* Less padding on mobile */
+    }
+
+    #motor-card {
+        width: 95%; /* Card takes up most of the screen width */
+        padding: 15px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* Switch to a single column */
+    }
+
+    #motor-card h3 {
+        font-size: 1em;
+    }
+    
+    #motor-card p {
+        font-size: 0.85em;
+    }
 }
