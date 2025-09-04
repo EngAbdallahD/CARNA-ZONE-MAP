@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+}
+
+#layout-container {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 90vw;
+    margin: auto;
+}
+
+#layout-container svg [id] { /* Targets any element with an ID */
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+#layout-container svg [id]:hover {
+    opacity: 0.7;
+    stroke: #007bff;
+    stroke-width: 5px;
+}
+
+#motor-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; /* Wider card for more info */
+    max-width: 90vw;
+    max-height: 90vh; /* Allow scrolling on small screens */
+    overflow-y: auto; /* Add scrollbar if content overflows */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    padding: 25px;
+    z-index: 1000;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#motor-card.hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+    pointer-events: none;
+}
+
+#motor-card h3 {
+    margin-top: 0;
+    color: #0056b3;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+#motor-card p {
+    margin: 8px 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two-column layout */
+    gap: 10px 25px; /* Row and column gap */
+    margin-top: 15px;
+}
+
+.card-section h4 {
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    grid-column: 1 / -1; /* Header spans both columns */
+}
+
+.card-section.full-width {
+    grid-column: 1 / -1; /* Section spans both columns */
+}
+
+#close-card {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #999;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
